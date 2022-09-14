@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="880" height="600">
+      Canvas not supported, use another browser.
+    </canvas>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script src="Winwheel.js"></script>
+    <script>
+      let theWheel = new Winwheel({
+        numSegments: 20,
+        segments: [
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "#ff92ec",
+            text: "Segment 1",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "#63ff5a",
+            text: "Segment 2",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "#ff92ec",
+            text: "Segment 3",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "#63ff5a",
+            text: "Segment 4",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "#ff92ec",
+            text: "Segment 5",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "#63ff5a",
+            text: "Segment 6",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "#ff92ec",
+            text: "Segment 7",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "#63ff5a",
+            text: "Segment 8",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "#ff92ec",
+            text: "Segment 9",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "#63ff5a",
+            text: "Segment 10",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "#ff92ec",
+            text: "Segment 11",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "#63ff5a",
+            text: "Segment 12",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "#ff92ec",
+            text: "Segment 13",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "#63ff5a",
+            text: "Segment 14",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "#ff92ec",
+            text: "Segment 15",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "#63ff5a",
+            text: "Segment 16",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "#ff92ec",
+            text: "Segment 17",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "#63ff5a",
+            text: "Segment 18",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "#ff92ec",
+            text: "Segment 19",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "#63ff5a",
+            text: "Segment 20",
+          },
+        ],
+        outerRadius: 280,
+        innerRadius: 120,
+        // Turn pins on.
+        pins: {
+          number: 20,
+          fillStyle: "white",
+          outerRadius: 20,
+          strokeStyle: "#63ff5a",
+          margin: 20,
+        },
+        // Note animation properties passed in constructor parameters.
+        animation: {
+          type: "spinToStop", // Type of animation.
+          duration: 5, // How long the animation is to take in seconds.
+          spins: 8, // The number of complete 360 degree rotations the wheel is to do.
+          callbackSound: playSound,
+          // During the animation need to call the drawTriangle() to re-draw the pointer each frame.
+          callbackAfter: "drawTriangle()",
+        },
+      });
+
+      // Function to draw pointer using code (like in a previous tutorial).
+      drawTriangle();
+
+      function drawTriangle() {
+        // Get the canvas context the wheel uses.
+        let ctx = theWheel.ctx;
+
+        ctx.strokeStyle = "black"; // Set line colour.
+        ctx.fillStyle = "black"; // Set fill colour.
+        ctx.lineWidth = 1;
+        ctx.beginPath(); // Begin path.
+        ctx.moveTo(430, 5); // Move to initial position.
+        ctx.lineTo(450, 5); // Draw lines to make the shape.
+        ctx.lineTo(440, 35);
+        ctx.lineTo(430, 5);
+        ctx.stroke(); // Complete the path by stroking (draw lines).
+        ctx.fill(); // Then fill.
+      }
+
+      let audio = new Audio("tick.mp3"); // Create audio object and load desired file.
+
+      function playSound() {
+        // Stop and rewind the sound (stops it if already playing).
+        audio.pause();
+        audio.currentTime = 0;
+
+        // Play the sound.
+        audio.play();
+      }
+
+      // -------------------------------------------------------
+      // Function for reset button.
+      // -------------------------------------------------------
+      function resetWheel() {
+        theWheel.stopAnimation(false); // Stop the animation, false as param so does not call callback function.
+        theWheel.rotationAngle = 0; // Re-set the wheel angle to 0 degrees.
+        theWheel.draw(); // Call draw to render changes to the wheel.
+
+        //document.getElementById("pw1").className = ""; // Remove all colours from the power level indicators.
+        //document.getElementById("pw2").className = "";
+        //document.getElementById("pw3").className = "";
+
+        //wheelSpinning = false; // Reset to false to power buttons and spin can be clicked again.
+      }
+    </script>
+    <button onClick="theWheel.startAnimation();">Spin the Wheel</button>
+  </body>
+</html>
