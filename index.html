@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      canvas {
+        background-image: url(./aka_wheel_bg.png);
+        background-position: center;
+        background-repeat: none;
+      }
+    </style>
   </head>
   <body>
     <canvas id="canvas" width="880" height="600">
@@ -15,105 +22,132 @@
     <script>
       let theWheel = new Winwheel({
         numSegments: 20,
+        pointerAngle: 0,
+        // Specify pointer guide properties.
+        pointerGuide: {
+          display: false,
+          strokeStyle: "red",
+          lineWidth: 3,
+        },
         segments: [
           {
             strokeStyle: "rgba(255,255,255,0)",
             fillStyle: "#ff92ec",
+            textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 1",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#63ff5a",
+            fillStyle: "#317f2d",
+            textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 2",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
             fillStyle: "#ff92ec",
+            textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 3",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#63ff5a",
+            fillStyle: "#317f2d",
+            textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 4",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
             fillStyle: "#ff92ec",
+            textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 5",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#63ff5a",
+            fillStyle: "#317f2d",
+            textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 6",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
             fillStyle: "#ff92ec",
+            textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 7",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#63ff5a",
+            fillStyle: "#317f2d",
+            textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 8",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
             fillStyle: "#ff92ec",
+            textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 9",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#63ff5a",
+            fillStyle: "#317f2d",
+            textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 10",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
             fillStyle: "#ff92ec",
+            textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 11",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#63ff5a",
+            fillStyle: "#317f2d",
+            textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 12",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
             fillStyle: "#ff92ec",
+            textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 13",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#63ff5a",
+            fillStyle: "#317f2d",
+            textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 14",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
             fillStyle: "#ff92ec",
+            textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 15",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#63ff5a",
+            fillStyle: "#317f2d",
+            textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 16",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
             fillStyle: "#ff92ec",
+            textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 17",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#63ff5a",
+            fillStyle: "#317f2d",
+            textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 18",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
             fillStyle: "#ff92ec",
+            textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 19",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#63ff5a",
+            fillStyle: "#317f2d",
+            textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 20",
           },
         ],
@@ -125,7 +159,7 @@
           fillStyle: "white",
           outerRadius: 20,
           strokeStyle: "#63ff5a",
-          margin: 20,
+          margin: 60,
         },
         // Note animation properties passed in constructor parameters.
         animation: {
@@ -137,7 +171,7 @@
           callbackAfter: "drawTriangle()",
         },
       });
-
+      window.wheel = theWheel;
       // Function to draw pointer using code (like in a previous tutorial).
       drawTriangle();
 
@@ -182,7 +216,31 @@
 
         //wheelSpinning = false; // Reset to false to power buttons and spin can be clicked again.
       }
+
+      // Create new image object in memory.
+      let loadedImg = new Image();
+
+      // Create callback to execute once the image has finished loading.
+      loadedImg.onload = function () {
+        theWheel.wheelImage = loadedImg; // Make wheelImage equal the loaded image object.
+        theWheel.draw(); // Also call draw function to render the wheel.
+        drawTriangle();
+      };
+
+      function deleteSegment() {
+        // Call function to remove a segment from the wheel, by default the last one will be
+        // removed; you can pass in the number of the segment to delete if desired.
+        theWheel.deleteSegment();
+
+        // The draw method of the wheel object must be called to render the changes.
+        theWheel.draw();
+      }
+
+      // Set the image source, once complete this will trigger the onLoad callback (above).
+      loadedImg.src = "aka_wheel_bg.png";
     </script>
     <button onClick="theWheel.startAnimation();">Spin the Wheel</button>
+    <button onClick="addSegment();">Add Segment</button>
+    <button onClick="deleteSegment();">Delete Segment</button>
   </body>
 </html>
