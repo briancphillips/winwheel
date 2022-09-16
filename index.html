@@ -6,19 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      canvas {
+      @import url("https://fonts.googleapis.com/css2?family=Patua+One&display=swap");
+      canvas.wheel {
         background-image: url(./aka_wheel_bg.png);
         background-position: center;
-        background-repeat: none;
+        background-repeat: no-repeat;
+      }
+      .canvas_wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .canvas_wrapper .words {
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        font-family: "Patua One", cursive;
+        color: white;
+        font-size: large;
+      }
+      body {
+        background-color: #081b0a;
       }
     </style>
   </head>
   <body>
-    <canvas id="canvas" width="880" height="600">
-      Canvas not supported, use another browser.
-    </canvas>
+    <div class="canvas_wrapper">
+      <canvas id="canvas" class="wheel" width="880" height="600"> </canvas>
+      <span class="words">AKA</span>
+    </div>
+    <div style="display: flex; align-items: center; justify-content: center">
+      <button onClick="theWheel.startAnimation();">Let's DO THIS</button>
+      <!-- <button onClick="addSegment();">Add Segment</button>
+      <button onClick="deleteSegment();">Delete Segment</button> -->
+    </div>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
     <script src="Winwheel.js"></script>
+    <script src="confetti.js"></script>
     <script>
       let theWheel = new Winwheel({
         numSegments: 20,
@@ -29,124 +53,125 @@
           strokeStyle: "red",
           lineWidth: 3,
         },
+        drawMode: "image",
         segments: [
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#ff92ec",
+            fillStyle: "rgba(255,255,255,0)",
             textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 1",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#317f2d",
+            fillStyle: "rgba(255,255,255,0)",
             textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 2",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#ff92ec",
+            fillStyle: "rgba(255,255,255,0)",
             textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 3",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#317f2d",
+            fillStyle: "rgba(255,255,255,0)",
             textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 4",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#ff92ec",
+            fillStyle: "rgba(255,255,255,0)",
             textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 5",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#317f2d",
+            fillStyle: "rgba(255,255,255,0)",
             textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 6",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#ff92ec",
+            fillStyle: "rgba(255,255,255,0)",
             textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 7",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#317f2d",
+            fillStyle: "rgba(255,255,255,0)",
             textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 8",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#ff92ec",
+            fillStyle: "rgba(255,255,255,0)",
             textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 9",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#317f2d",
+            fillStyle: "rgba(255,255,255,0)",
             textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 10",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#ff92ec",
+            fillStyle: "rgba(255,255,255,0)",
             textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 11",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#317f2d",
+            fillStyle: "rgba(255,255,255,0)",
             textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 12",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#ff92ec",
+            fillStyle: "rgba(255,255,255,0)",
             textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 13",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#317f2d",
+            fillStyle: "rgba(255,255,255,0)",
             textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 14",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#ff92ec",
+            fillStyle: "rgba(255,255,255,0)",
             textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 15",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#317f2d",
+            fillStyle: "rgba(255,255,255,0)",
             textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 16",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#ff92ec",
+            fillStyle: "rgba(255,255,255,0)",
             textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 17",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#317f2d",
+            fillStyle: "rgba(255,255,255,0)",
             textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 18",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#ff92ec",
+            fillStyle: "rgba(255,255,255,0)",
             textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 19",
           },
           {
             strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "#317f2d",
+            fillStyle: "rgba(255,255,255,0)",
             textFillStyle: "rgba(255,255,255,0)",
             text: "Segment 20",
           },
@@ -155,7 +180,7 @@
         innerRadius: 120,
         // Turn pins on.
         pins: {
-          number: 20,
+          number: 0,
           fillStyle: "white",
           outerRadius: 20,
           strokeStyle: "#63ff5a",
@@ -169,6 +194,8 @@
           callbackSound: playSound,
           // During the animation need to call the drawTriangle() to re-draw the pointer each frame.
           callbackAfter: "drawTriangle()",
+          // Remember to do something after the animation has finished specify callback function.
+          callbackFinished: "alertPrize()",
         },
       });
       window.wheel = theWheel;
@@ -206,6 +233,7 @@
       // Function for reset button.
       // -------------------------------------------------------
       function resetWheel() {
+        document.querySelector(".words").innerHTML = "AKA"; // + winningSegmentNumber;
         theWheel.stopAnimation(false); // Stop the animation, false as param so does not call callback function.
         theWheel.rotationAngle = 0; // Re-set the wheel angle to 0 degrees.
         theWheel.draw(); // Call draw to render changes to the wheel.
@@ -237,10 +265,36 @@
       }
 
       // Set the image source, once complete this will trigger the onLoad callback (above).
-      loadedImg.src = "aka_wheel_bg.png";
+      loadedImg.src = "wheel.png";
+
+      function alertPrize() {
+        // Call getIndicatedSegment() function to return pointer to the segment pointed to on wheel.
+        let winningSegment = theWheel.getIndicatedSegment();
+        let winningSegmentNumber = theWheel.getIndicatedSegmentNumber();
+        // Basic alert of the segment text which is the prize name.
+        document.querySelector(".words").innerHTML = "OUR NEW WINNER<br />"; // + winningSegmentNumber;
+        //.append("<br />" + winningSegmentNumber);
+
+        deleteSegment(winningSegmentNumber);
+        start();
+        stop();
+      }
+
+      // start
+
+      const start = () => {
+        setTimeout(function () {
+          confetti.start();
+        }, 100); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+      };
+
+      //  Stop
+
+      const stop = () => {
+        setTimeout(function () {
+          confetti.stop();
+        }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+      };
     </script>
-    <button onClick="theWheel.startAnimation();">Spin the Wheel</button>
-    <button onClick="addSegment();">Add Segment</button>
-    <button onClick="deleteSegment();">Delete Segment</button>
   </body>
 </html>

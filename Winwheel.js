@@ -1888,7 +1888,8 @@ Winwheel.prototype.getRotationPosition = function () {
 // This function starts the wheel's animation by using the properties of the animation object of of the wheel to begin the a greensock tween.
 // ==================================================================================================================================================
 Winwheel.prototype.startAnimation = function () {
-  if (this.animation) {
+    resetWheel();
+    if (this.animation) {
     // Call function to compute the animation properties.
     this.computeAnimation();
 
