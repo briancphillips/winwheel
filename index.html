@@ -81,8 +81,13 @@
         }).mount();
 
         slider.on("moved", function () {
-          // This won't be executed.
-          console.log("done");
+          if (slider.index == slider.length - 1) {
+            setTimeout(() => {
+              window.open("./index2.html", "_self");
+            }, 5000);
+          }
+          //console.log(slider.length);
+          //console.log(slider.index);
         });
         window.slider = slider;
         // const slider = new Splide("#image-carousel").mount();
