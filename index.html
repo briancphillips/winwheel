@@ -5,296 +5,96 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./css/splide.min.css" />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Patua+One&display=swap");
-      canvas.wheel {
-        background-image: url(./aka_wheel_bg.png);
-        background-position: center;
-        background-repeat: no-repeat;
-      }
-      .canvas_wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .canvas_wrapper .words {
-        position: absolute;
-        align-items: center;
-        justify-content: center;
-        font-family: "Patua One", cursive;
-        color: white;
-        font-size: large;
+      html {
+        height: 100%;
       }
       body {
-        background-color: #081b0a;
+        background-image: url("./img/pink_bg.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+      .splide {
+        width: 500px;
+      }
+      .splide__slide img {
+        width: 500px;
+        height: auto;
+      }
+      section {
+        width: 800px;
+        /* height: 100vh; */
       }
     </style>
   </head>
   <body>
-    <div class="canvas_wrapper">
-      <canvas id="canvas" class="wheel" width="880" height="600"> </canvas>
-      <span class="words">AKA</span>
+    <div
+      style="
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        width: 80vw;
+        height: 90vh;
+      "
+    >
+      <section id="image-carousel" class="splide" aria-label="Beautiful Images">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide">
+              <img src="./slides/001.jpg" alt="" />
+            </li>
+            <li class="splide__slide">
+              <img src="./slides/002.jpg" alt="" />
+            </li>
+            <li class="splide__slide">
+              <img src="./slides/003.jpg" alt="" />
+            </li>
+            <li class="splide__slide">
+              <img src="./slides/004.jpg" alt="" />
+            </li>
+            <li class="splide__slide">
+              <img src="./slides/005.jpg" alt="" />
+            </li>
+            <li class="splide__slide">
+              <img src="./slides/006.jpg" alt="" />
+            </li>
+            <li class="splide__slide">
+              <img src="./slides/007.jpg" alt="" />
+            </li>
+            <li class="splide__slide">
+              <img src="./slides/008.jpg" alt="" />
+            </li>
+          </ul>
+        </div>
+      </section>
     </div>
-    <div style="display: flex; align-items: center; justify-content: center">
-      <button onClick="theWheel.startAnimation();">Let's DO THIS</button>
-      <!-- <button onClick="addSegment();">Add Segment</button>
-      <button onClick="deleteSegment();">Delete Segment</button> -->
-    </div>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-    <script src="Winwheel.js"></script>
-    <script src="confetti.js"></script>
+    <script src="./js/splide.min.js"></script>
     <script>
-      let theWheel = new Winwheel({
-        numSegments: 20,
-        pointerAngle: 0,
-        // Specify pointer guide properties.
-        pointerGuide: {
-          display: false,
-          strokeStyle: "red",
-          lineWidth: 3,
-        },
-        drawMode: "image",
-        segments: [
-          {
-            strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "rgba(255,255,255,0)",
-            textFillStyle: "rgba(255,255,255,0)",
-            text: "Segment 1",
-          },
-          {
-            strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "rgba(255,255,255,0)",
-            textFillStyle: "rgba(255,255,255,0)",
-            text: "Segment 2",
-          },
-          {
-            strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "rgba(255,255,255,0)",
-            textFillStyle: "rgba(255,255,255,0)",
-            text: "Segment 3",
-          },
-          {
-            strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "rgba(255,255,255,0)",
-            textFillStyle: "rgba(255,255,255,0)",
-            text: "Segment 4",
-          },
-          {
-            strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "rgba(255,255,255,0)",
-            textFillStyle: "rgba(255,255,255,0)",
-            text: "Segment 5",
-          },
-          {
-            strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "rgba(255,255,255,0)",
-            textFillStyle: "rgba(255,255,255,0)",
-            text: "Segment 6",
-          },
-          {
-            strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "rgba(255,255,255,0)",
-            textFillStyle: "rgba(255,255,255,0)",
-            text: "Segment 7",
-          },
-          {
-            strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "rgba(255,255,255,0)",
-            textFillStyle: "rgba(255,255,255,0)",
-            text: "Segment 8",
-          },
-          {
-            strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "rgba(255,255,255,0)",
-            textFillStyle: "rgba(255,255,255,0)",
-            text: "Segment 9",
-          },
-          {
-            strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "rgba(255,255,255,0)",
-            textFillStyle: "rgba(255,255,255,0)",
-            text: "Segment 10",
-          },
-          {
-            strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "rgba(255,255,255,0)",
-            textFillStyle: "rgba(255,255,255,0)",
-            text: "Segment 11",
-          },
-          {
-            strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "rgba(255,255,255,0)",
-            textFillStyle: "rgba(255,255,255,0)",
-            text: "Segment 12",
-          },
-          {
-            strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "rgba(255,255,255,0)",
-            textFillStyle: "rgba(255,255,255,0)",
-            text: "Segment 13",
-          },
-          {
-            strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "rgba(255,255,255,0)",
-            textFillStyle: "rgba(255,255,255,0)",
-            text: "Segment 14",
-          },
-          {
-            strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "rgba(255,255,255,0)",
-            textFillStyle: "rgba(255,255,255,0)",
-            text: "Segment 15",
-          },
-          {
-            strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "rgba(255,255,255,0)",
-            textFillStyle: "rgba(255,255,255,0)",
-            text: "Segment 16",
-          },
-          {
-            strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "rgba(255,255,255,0)",
-            textFillStyle: "rgba(255,255,255,0)",
-            text: "Segment 17",
-          },
-          {
-            strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "rgba(255,255,255,0)",
-            textFillStyle: "rgba(255,255,255,0)",
-            text: "Segment 18",
-          },
-          {
-            strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "rgba(255,255,255,0)",
-            textFillStyle: "rgba(255,255,255,0)",
-            text: "Segment 19",
-          },
-          {
-            strokeStyle: "rgba(255,255,255,0)",
-            fillStyle: "rgba(255,255,255,0)",
-            textFillStyle: "rgba(255,255,255,0)",
-            text: "Segment 20",
-          },
-        ],
-        outerRadius: 280,
-        innerRadius: 120,
-        // Turn pins on.
-        pins: {
-          number: 0,
-          fillStyle: "white",
-          outerRadius: 20,
-          strokeStyle: "#63ff5a",
-          margin: 60,
-        },
-        // Note animation properties passed in constructor parameters.
-        animation: {
-          type: "spinToStop", // Type of animation.
-          duration: 5, // How long the animation is to take in seconds.
-          spins: 8, // The number of complete 360 degree rotations the wheel is to do.
-          callbackSound: playSound,
-          // During the animation need to call the drawTriangle() to re-draw the pointer each frame.
-          callbackAfter: "drawTriangle()",
-          // Remember to do something after the animation has finished specify callback function.
-          callbackFinished: "alertPrize()",
-        },
+      document.addEventListener("DOMContentLoaded", function () {
+        const slider = new Splide("#image-carousel", {
+          type: "slide",
+          autoplay: "play",
+          perPage: 1,
+          heightRatio: 0.7,
+        }).mount();
+
+        slider.on("moved", function () {
+          // This won't be executed.
+          console.log("done");
+        });
+        window.slider = slider;
+        // const slider = new Splide("#image-carousel").mount();
+        // slider.defaults = {
+        //   type: "loop",
+        //   autoplay: "pause",
+        //   perPage: 1,
+        // };
+
+        // const { Autoplay } = slider.Components;
+        // Autoplay.play();
       });
-      window.wheel = theWheel;
-      // Function to draw pointer using code (like in a previous tutorial).
-      drawTriangle();
-
-      function drawTriangle() {
-        // Get the canvas context the wheel uses.
-        let ctx = theWheel.ctx;
-
-        ctx.strokeStyle = "black"; // Set line colour.
-        ctx.fillStyle = "black"; // Set fill colour.
-        ctx.lineWidth = 1;
-        ctx.beginPath(); // Begin path.
-        ctx.moveTo(430, 5); // Move to initial position.
-        ctx.lineTo(450, 5); // Draw lines to make the shape.
-        ctx.lineTo(440, 35);
-        ctx.lineTo(430, 5);
-        ctx.stroke(); // Complete the path by stroking (draw lines).
-        ctx.fill(); // Then fill.
-      }
-
-      let audio = new Audio("tick.mp3"); // Create audio object and load desired file.
-
-      function playSound() {
-        // Stop and rewind the sound (stops it if already playing).
-        audio.pause();
-        audio.currentTime = 0;
-
-        // Play the sound.
-        audio.play();
-      }
-
-      // -------------------------------------------------------
-      // Function for reset button.
-      // -------------------------------------------------------
-      function resetWheel() {
-        document.querySelector(".words").innerHTML = "AKA"; // + winningSegmentNumber;
-        theWheel.stopAnimation(false); // Stop the animation, false as param so does not call callback function.
-        theWheel.rotationAngle = 0; // Re-set the wheel angle to 0 degrees.
-        theWheel.draw(); // Call draw to render changes to the wheel.
-
-        //document.getElementById("pw1").className = ""; // Remove all colours from the power level indicators.
-        //document.getElementById("pw2").className = "";
-        //document.getElementById("pw3").className = "";
-
-        //wheelSpinning = false; // Reset to false to power buttons and spin can be clicked again.
-      }
-
-      // Create new image object in memory.
-      let loadedImg = new Image();
-
-      // Create callback to execute once the image has finished loading.
-      loadedImg.onload = function () {
-        theWheel.wheelImage = loadedImg; // Make wheelImage equal the loaded image object.
-        theWheel.draw(); // Also call draw function to render the wheel.
-        drawTriangle();
-      };
-
-      function deleteSegment() {
-        // Call function to remove a segment from the wheel, by default the last one will be
-        // removed; you can pass in the number of the segment to delete if desired.
-        theWheel.deleteSegment();
-
-        // The draw method of the wheel object must be called to render the changes.
-        theWheel.draw();
-      }
-
-      // Set the image source, once complete this will trigger the onLoad callback (above).
-      loadedImg.src = "wheel.png";
-
-      function alertPrize() {
-        // Call getIndicatedSegment() function to return pointer to the segment pointed to on wheel.
-        let winningSegment = theWheel.getIndicatedSegment();
-        let winningSegmentNumber = theWheel.getIndicatedSegmentNumber();
-        // Basic alert of the segment text which is the prize name.
-        document.querySelector(".words").innerHTML = "OUR NEW WINNER<br />"; // + winningSegmentNumber;
-        //.append("<br />" + winningSegmentNumber);
-
-        deleteSegment(winningSegmentNumber);
-        start();
-        stop();
-      }
-
-      // start
-
-      const start = () => {
-        setTimeout(function () {
-          confetti.start();
-        }, 100); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
-      };
-
-      //  Stop
-
-      const stop = () => {
-        setTimeout(function () {
-          confetti.stop();
-        }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
-      };
     </script>
   </body>
 </html>

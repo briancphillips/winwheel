@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Patua+One&display=swap");
+      canvas.wheel {
+        background-image: url(./img/aka_wheel_bg.png);
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .canvas_wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 80vh;
+      }
+      .canvas_wrapper .words {
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-family: "Patua One", cursive;
+        color: white;
+        font-size: x-large;
+      }
+      button {
+        display: inline-block;
+        background-color: #bbdb86;
+        border: none;
+        color: black;
+        font-size: xx-large;
+        font-family: "Patua One", cursive;
+        cursor: pointer;
+      }
+      button:disabled {
+        background-color: gray;
+        cursor: default;
+      }
+      body {
+        background-color: #081b0a;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="canvas_wrapper">
+      <canvas id="canvas" class="wheel" width="880" height="600"> </canvas>
+      <span class="words">AKA</span>
+    </div>
+    <div style="display: flex; align-items: center; justify-content: center">
+      <button class="btn">PICK A WINNER</button>
+      <!-- <button onClick="addSegment();">Add Segment</button>
+      <button onClick="deleteSegment();">Delete Segment</button> -->
+    </div>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script src="./js/Winwheel.js"></script>
+    <script src="./js/confetti.js"></script>
+    <script>
+      let theWheel = new Winwheel({
+        numSegments: 20,
+        pointerAngle: 0,
+        // Specify pointer guide properties.
+        pointerGuide: {
+          display: false,
+          strokeStyle: "red",
+          lineWidth: 3,
+        },
+        drawMode: "image",
+        segments: [
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "rgba(255,255,255,0)",
+            textFillStyle: "rgba(255,255,255,0)",
+            text: "Segment 1",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "rgba(255,255,255,0)",
+            textFillStyle: "rgba(255,255,255,0)",
+            text: "Segment 2",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "rgba(255,255,255,0)",
+            textFillStyle: "rgba(255,255,255,0)",
+            text: "Segment 3",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "rgba(255,255,255,0)",
+            textFillStyle: "rgba(255,255,255,0)",
+            text: "Segment 4",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "rgba(255,255,255,0)",
+            textFillStyle: "rgba(255,255,255,0)",
+            text: "Segment 5",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "rgba(255,255,255,0)",
+            textFillStyle: "rgba(255,255,255,0)",
+            text: "Segment 6",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "rgba(255,255,255,0)",
+            textFillStyle: "rgba(255,255,255,0)",
+            text: "Segment 7",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "rgba(255,255,255,0)",
+            textFillStyle: "rgba(255,255,255,0)",
+            text: "Segment 8",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "rgba(255,255,255,0)",
+            textFillStyle: "rgba(255,255,255,0)",
+            text: "Segment 9",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "rgba(255,255,255,0)",
+            textFillStyle: "rgba(255,255,255,0)",
+            text: "Segment 10",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "rgba(255,255,255,0)",
+            textFillStyle: "rgba(255,255,255,0)",
+            text: "Segment 11",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "rgba(255,255,255,0)",
+            textFillStyle: "rgba(255,255,255,0)",
+            text: "Segment 12",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "rgba(255,255,255,0)",
+            textFillStyle: "rgba(255,255,255,0)",
+            text: "Segment 13",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "rgba(255,255,255,0)",
+            textFillStyle: "rgba(255,255,255,0)",
+            text: "Segment 14",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "rgba(255,255,255,0)",
+            textFillStyle: "rgba(255,255,255,0)",
+            text: "Segment 15",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "rgba(255,255,255,0)",
+            textFillStyle: "rgba(255,255,255,0)",
+            text: "Segment 16",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "rgba(255,255,255,0)",
+            textFillStyle: "rgba(255,255,255,0)",
+            text: "Segment 17",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "rgba(255,255,255,0)",
+            textFillStyle: "rgba(255,255,255,0)",
+            text: "Segment 18",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "rgba(255,255,255,0)",
+            textFillStyle: "rgba(255,255,255,0)",
+            text: "Segment 19",
+          },
+          {
+            strokeStyle: "rgba(255,255,255,0)",
+            fillStyle: "rgba(255,255,255,0)",
+            textFillStyle: "rgba(255,255,255,0)",
+            text: "Segment 20",
+          },
+        ],
+        outerRadius: 280,
+        innerRadius: 120,
+        // Turn pins on.
+        pins: {
+          number: 0,
+          fillStyle: "white",
+          outerRadius: 20,
+          strokeStyle: "#63ff5a",
+          margin: 60,
+        },
+        // Note animation properties passed in constructor parameters.
+        animation: {
+          type: "spinToStop", // Type of animation.
+          duration: 5, // How long the animation is to take in seconds.
+          spins: 8, // The number of complete 360 degree rotations the wheel is to do.
+          callbackSound: playSound,
+          // During the animation need to call the drawTriangle() to re-draw the pointer each frame.
+          callbackAfter: "drawTriangle()",
+          // Remember to do something after the animation has finished specify callback function.
+          callbackFinished: "alertPrize()",
+        },
+      });
+      window.wheel = theWheel;
+      // Function to draw pointer using code (like in a previous tutorial).
+      drawTriangle();
+
+      function drawTriangle() {
+        // Get the canvas context the wheel uses.
+        let ctx = theWheel.ctx;
+
+        ctx.strokeStyle = "black"; // Set line colour.
+        ctx.fillStyle = "black"; // Set fill colour.
+        ctx.lineWidth = 1;
+        ctx.beginPath(); // Begin path.
+        ctx.moveTo(430, 5); // Move to initial position.
+        ctx.lineTo(450, 5); // Draw lines to make the shape.
+        ctx.lineTo(440, 35);
+        ctx.lineTo(430, 5);
+        ctx.stroke(); // Complete the path by stroking (draw lines).
+        ctx.fill(); // Then fill.
+      }
+
+      let audio = new Audio("./audio/tick.mp3"); // Create audio object and load desired file.
+
+      function playSound() {
+        // Stop and rewind the sound (stops it if already playing).
+        audio.pause();
+        audio.currentTime = 0;
+
+        // Play the sound.
+        audio.play();
+      }
+
+      // -------------------------------------------------------
+      // Function for reset button.
+      // -------------------------------------------------------
+      function resetWheel() {
+        document.querySelector(".words").innerHTML = "AKA"; // + winningSegmentNumber;
+        theWheel.stopAnimation(false); // Stop the animation, false as param so does not call callback function.
+        theWheel.rotationAngle = 0; // Re-set the wheel angle to 0 degrees.
+        theWheel.draw(); // Call draw to render changes to the wheel.
+
+        //document.getElementById("pw1").className = ""; // Remove all colours from the power level indicators.
+        //document.getElementById("pw2").className = "";
+        //document.getElementById("pw3").className = "";
+
+        //wheelSpinning = false; // Reset to false to power buttons and spin can be clicked again.
+      }
+
+      // Create new image object in memory.
+      let loadedImg = new Image();
+
+      // Create callback to execute once the image has finished loading.
+      loadedImg.onload = function () {
+        theWheel.wheelImage = loadedImg; // Make wheelImage equal the loaded image object.
+        theWheel.draw(); // Also call draw function to render the wheel.
+        drawTriangle();
+      };
+
+      function deleteSegment() {
+        // Call function to remove a segment from the wheel, by default the last one will be
+        // removed; you can pass in the number of the segment to delete if desired.
+        theWheel.deleteSegment();
+
+        // The draw method of the wheel object must be called to render the changes.
+        theWheel.draw();
+      }
+
+      // Set the image source, once complete this will trigger the onLoad callback (above).
+      loadedImg.src = "./img/wheel.png";
+
+      function alertPrize() {
+        // Call getIndicatedSegment() function to return pointer to the segment pointed to on wheel.
+        let winningSegment = theWheel.getIndicatedSegment();
+        let winningSegmentNumber = theWheel.getIndicatedSegmentNumber();
+        // Basic alert of the segment text which is the prize name.
+        let sentence =
+          "OUR NEW WINNER IS<br />" + names[winningSegmentNumber - 1] + "";
+        document.querySelector(".words").innerHTML = sentence.toUpperCase(); // + winningSegmentNumber;
+        //.append("<br />" + winningSegmentNumber);
+        names.splice(winningSegmentNumber - 1, 1);
+        deleteSegment(winningSegmentNumber);
+        start();
+        stop();
+      }
+
+      // start
+
+      const start = () => {
+        setTimeout(function () {
+          //document.querySelector('button').setAttribute('disabled',true);
+          confetti.start();
+        }, 100); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+      };
+
+      //  Stop
+
+      const stop = () => {
+        setTimeout(function () {
+          //document.querySelector('button').setAttribute('disabled',false);
+          confetti.stop();
+        }, 5000);
+        setTimeout(function () {
+          //document.querySelector('button').setAttribute('disabled',false);
+          document.querySelector(".btn").disabled = false; // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+        }, 5000);
+      };
+
+      const names = [
+        "Garrett Potter",
+        "Clotilda Hayden",
+        "Missy Masterson",
+        "Red Hodgson",
+        "Eli Haywood",
+        "Aubree Mould",
+        "Judd Killam",
+        "Barb Phillips",
+        "Laura Robert",
+        "Garey Dwerryhouse",
+        "Evvie Jennings",
+        "Pearce Stone",
+        "Cornelius Wilson",
+        "Deemer Hancock",
+        "Tess Peyton",
+        "Cole Lyon",
+        "Vin Bishop",
+        "Lenora Stoddard",
+        "Alexis Nielson",
+        "Bentley Munson",
+      ];
+
+      window.addEventListener("click", (e) => {
+        console.log(names.length);
+        if (!document.querySelector(".btn").disabled) {
+          document.querySelector(".btn").disabled = true;
+          theWheel.startAnimation();
+        }
+      });
+    </script>
+  </body>
+</html>
