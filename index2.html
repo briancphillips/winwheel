@@ -288,8 +288,14 @@
         let winningSegment = theWheel.getIndicatedSegment();
         let winningSegmentNumber = theWheel.getIndicatedSegmentNumber();
         // Basic alert of the segment text which is the prize name.
+        if (winningSegmentNumber > names.length) {
+          let sentence = "OOPS! NO WINNER<br />SPIN AGAIN";
+          document.querySelector(".words").innerHTML = sentence.toUpperCase();
+          document.querySelector(".btn").disabled = false;
+          return;
+        }
         let sentence =
-          "OUR NEW WINNER IS<br />" + names[winningSegmentNumber - 1] + "";
+          "CONGRATULATIONS<br />" + names[winningSegmentNumber - 1] + "";
         document.querySelector(".words").innerHTML = sentence.toUpperCase(); // + winningSegmentNumber;
         //.append("<br />" + winningSegmentNumber);
         names.splice(winningSegmentNumber - 1, 1);
@@ -321,26 +327,26 @@
       };
 
       const names = [
-        "Garrett Potter",
-        "Clotilda Hayden",
-        "Missy Masterson",
-        "Red Hodgson",
-        "Eli Haywood",
-        "Aubree Mould",
-        "Judd Killam",
-        "Barb Phillips",
-        "Laura Robert",
-        "Garey Dwerryhouse",
-        "Evvie Jennings",
-        "Pearce Stone",
-        "Cornelius Wilson",
-        "Deemer Hancock",
-        "Tess Peyton",
-        "Cole Lyon",
-        "Vin Bishop",
-        "Lenora Stoddard",
-        "Alexis Nielson",
-        "Bentley Munson",
+        "Eulastine Thompson",
+        "Isophene Owens",
+        "Ashley Pettis",
+        // "Red Hodgson",
+        // "Eli Haywood",
+        // "Aubree Mould",
+        // "Judd Killam",
+        // "Barb Phillips",
+        // "Laura Robert",
+        // "Garey Dwerryhouse",
+        // "Evvie Jennings",
+        // "Pearce Stone",
+        // "Cornelius Wilson",
+        // "Deemer Hancock",
+        // "Tess Peyton",
+        // "Cole Lyon",
+        // "Vin Bishop",
+        // "Lenora Stoddard",
+        // "Alexis Nielson",
+        // "Bentley Munson",
       ];
 
       window.addEventListener("click", (e) => {
