@@ -100,9 +100,11 @@
 
         slider.on("moved", function () {
           if (slider.index == slider.length - 1) {
+            audio.volume -= 0.1;
             setTimeout(() => {
+              audio.volume -= 0.1;
               window.open("./index2.html", "_self");
-            }, 5000);
+            }, 10000);
           }
           //console.log(slider.length);
           //console.log(slider.index);
